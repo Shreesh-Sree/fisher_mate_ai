@@ -1,0 +1,555 @@
+{
+  "Tamil Nadu": {
+    "seasonal_ban": {
+      "period": "April 15 - June 14",
+      "reason": "Fish breeding season protection",
+      "penalty": "₹5,000 - ₹25,000 fine and/or imprisonment up to 3 months",
+      "current_status": "active"
+    },
+    "restricted_fishing": [
+      {
+        "method": "Bottom trawling",
+        "distance": "Within 3 nautical miles from shore",
+        "reason": "Protect marine ecosystem",
+        "penalty": "₹10,000 fine and boat confiscation"
+      },
+      {
+        "method": "Purse seine nets",
+        "distance": "Within 5 nautical miles from shore",
+        "reason": "Prevent juvenile fish catching",
+        "penalty": "₹15,000 fine and license suspension"
+      }
+    ],
+    "licensing": {
+      "motorized_boats": "Must be registered with Department of Fisheries",
+      "fishing_license": "Required for commercial fishing",
+      "validity": "Annual renewal required",
+      "fee": "₹2,000 - ₹10,000 based on boat size",
+      "documents": [
+        "Boat registration certificate",
+        "Engine certificate",
+        "Safety equipment certificate",
+        "Crew certification",
+        "Insurance certificate"
+      ]
+    },
+    "safety_requirements": [
+      "Life jackets for all crew members (IS 14946 standard)",
+      "VHF radio communication equipment",
+      "First aid kit with essential medicines",
+      "Emergency flares and distress signals",
+      "GPS navigation system",
+      "Fire extinguisher",
+      "Emergency beacon (EPIRB)"
+    ],
+    "contact_info": {
+      "department": "Department of Fisheries, Tamil Nadu",
+      "helpline": "1800-425-1266",
+      "website": "https://www.tn.gov.in/fisheries",
+      "email": "fisheries@tn.gov.in",
+      "address": "Directorate of Fisheries, Chennai - 600006"
+    },
+    "permitted_areas": [
+      "Beyond 3 nautical miles for trawling",
+      "Traditional fishing zones for artisanal fishing",
+      "Designated aquaculture zones"
+    ],
+    "prohibited_areas": [
+      "Marine protected areas",
+      "Coral reef zones",
+      "Turtle nesting beaches",
+      "Port and harbor areas"
+    ]
+  },
+  "Kerala": {
+    "seasonal_ban": {
+      "period": "June 15 - July 31",
+      "reason": "Monsoon season and fish breeding protection",
+      "penalty": "₹10,000 - ₹50,000 fine and boat confiscation",
+      "current_status": "seasonal"
+    },
+    "restricted_fishing": [
+      {
+        "method": "Ring seines",
+        "distance": "Within 5 nautical miles from shore",
+        "reason": "Protect traditional fishing rights",
+        "penalty": "₹20,000 fine and equipment confiscation"
+      },
+      {
+        "method": "Trawling",
+        "time": "Between 6 PM - 6 AM",
+        "reason": "Prevent conflict with traditional fishers",
+        "penalty": "₹15,000 fine and license suspension"
+      }
+    ],
+    "licensing": {
+      "motorized_boats": "Registration with Kerala Maritime Board",
+      "fishing_license": "Required for all fishing activities",
+      "validity": "5 years",
+      "fee": "₹5,000 - ₹25,000 based on vessel type",
+      "documents": [
+        "Boat ownership certificate",
+        "Engine registration",
+        "Crew list and certification",
+        "Safety equipment certificate",
+        "Insurance policy"
+      ]
+    },
+    "safety_requirements": [
+      "Life jackets (IS 14946 standard) for all crew",
+      "Marine radio equipment with emergency channels",
+      "Emergency position indicating beacon",
+      "First aid box with medications",
+      "Fire extinguisher and safety equipment",
+      "Navigation lights and sound signals"
+    ],
+    "contact_info": {
+      "department": "Kerala State Fisheries Department",
+      "helpline": "1800-425-4030",
+      "website": "https://fisheries.kerala.gov.in",
+      "email": "fisheries@kerala.gov.in",
+      "address": "Department of Fisheries, Thiruvananthapuram - 695001"
+    },
+    "permitted_areas": [
+      "Beyond 5 nautical miles for mechanized fishing",
+      "Traditional fishing zones for artisanal methods",
+      "Designated fishing harbors"
+    ],
+    "prohibited_areas": [
+      "Estuarine areas during breeding season",
+      "Marine sanctuary zones",
+      "Backwater conservation areas"
+    ]
+  },
+  "Karnataka": {
+    "seasonal_ban": {
+      "period": "June 1 - July 31",
+      "reason": "Monsoon season fishing ban",
+      "penalty": "₹7,500 - ₹30,000 fine and license suspension",
+      "current_status": "seasonal"
+    },
+    "restricted_fishing": [
+      {
+        "method": "Bottom trawling",
+        "distance": "Within 5 nautical miles from shore",
+        "reason": "Protect coastal marine life",
+        "penalty": "₹12,000 fine and equipment seizure"
+      },
+      {
+        "method": "Gill netting",
+        "size": "Mesh size below 45mm prohibited",
+        "reason": "Prevent juvenile fish mortality",
+        "penalty": "₹8,000 fine and net confiscation"
+      }
+    ],
+    "licensing": {
+      "motorized_boats": "Registration with Karnataka Fisheries Department",
+      "fishing_license": "Mandatory for commercial operations",
+      "validity": "3 years",
+      "fee": "₹3,000 - ₹15,000 based on boat category",
+      "documents": [
+        "Boat registration certificate",
+        "Engine certificate",
+        "Insurance certificate",
+        "Safety equipment inspection report"
+      ]
+    },
+    "safety_requirements": [
+      "Life jackets for all crew members",
+      "VHF radio communication equipment",
+      "Emergency supplies and first aid kit",
+      "Navigation lights and day signals",
+      "Fire safety equipment"
+    ],
+    "contact_info": {
+      "department": "Karnataka Fisheries Department",
+      "helpline": "1800-425-8040",
+      "website": "https://fisheries.karnataka.gov.in",
+      "email": "fisheries@karnataka.gov.in",
+      "address": "Department of Fisheries, Bangalore - 560001"
+    },
+    "permitted_areas": [
+      "Beyond 5 nautical miles for trawling",
+      "Traditional fishing zones",
+      "Licensed fishing areas"
+    ],
+    "prohibited_areas": [
+      "Marine national parks",
+      "Coral reef areas",
+      "Turtle conservation zones"
+    ]
+  },
+  "Andhra Pradesh": {
+    "seasonal_ban": {
+      "period": "April 15 - June 14",
+      "reason": "Fish breeding season protection",
+      "penalty": "₹5,000 - ₹20,000 fine and boat detention",
+      "current_status": "active"
+    },
+    "restricted_fishing": [
+      {
+        "method": "Trawling",
+        "distance": "Within 3 nautical miles from shore",
+        "reason": "Protect artisanal fishing zones",
+        "penalty": "₹10,000 fine and license suspension"
+      },
+      {
+        "method": "Purse seining",
+        "distance": "Within 5 nautical miles from shore",
+        "reason": "Prevent overfishing",
+        "penalty": "₹15,000 fine and equipment confiscation"
+      }
+    ],
+    "licensing": {
+      "motorized_boats": "Registration with AP Fisheries Department",
+      "fishing_license": "Required for mechanized boats",
+      "validity": "Annual renewal",
+      "fee": "₹2,500 - ₹12,000 based on vessel size",
+      "documents": [
+        "Boat registration",
+        "Engine registration",
+        "Crew certification",
+        "Safety equipment certificate"
+      ]
+    },
+    "safety_requirements": [
+      "Life jackets (approved type) for all crew",
+      "VHF radio with emergency channels",
+      "First aid kit with medicines",
+      "Emergency flares and signals",
+      "GPS navigation system"
+    ],
+    "contact_info": {
+      "department": "Andhra Pradesh Fisheries Department",
+      "helpline": "1800-425-1813",
+      "website": "https://fisheries.ap.gov.in",
+      "email": "fisheries@ap.gov.in",
+      "address": "Department of Fisheries, Hyderabad - 500001"
+    },
+    "permitted_areas": [
+      "Beyond 3 nautical miles for mechanized fishing",
+      "Traditional fishing zones",
+      "Designated fishing harbors"
+    ],
+    "prohibited_areas": [
+      "Marine protected areas",
+      "Olive ridley turtle nesting sites",
+      "Mangrove conservation areas"
+    ]
+  },
+  "West Bengal": {
+    "seasonal_ban": {
+      "period": "April 15 - June 14 (Bay of Bengal)",
+      "reason": "Hilsa breeding season protection",
+      "penalty": "₹10,000 - ₹25,000 fine and imprisonment up to 6 months",
+      "current_status": "active"
+    },
+    "restricted_fishing": [
+      {
+        "method": "Fixed bag nets",
+        "distance": "Within 5 nautical miles from shore",
+        "reason": "Protect juvenile fish",
+        "penalty": "₹8,000 fine and net confiscation"
+      },
+      {
+        "method": "Hilsa fishing",
+        "period": "September 15 - October 15",
+        "reason": "Breeding season protection",
+        "penalty": "₹20,000 fine and boat confiscation"
+      }
+    ],
+    "licensing": {
+      "motorized_boats": "Registration with West Bengal Fisheries Department",
+      "fishing_license": "Required for all fishing boats",
+      "validity": "Annual renewal",
+      "fee": "₹1,500 - ₹8,000 based on boat type",
+      "documents": [
+        "Boat registration certificate",
+        "Engine certificate",
+        "Crew list and ID proof",
+        "Safety equipment certificate"
+      ]
+    },
+    "safety_requirements": [
+      "Life jackets for all crew members",
+      "Marine radio communication",
+      "Emergency beacon (EPIRB)",
+      "First aid supplies and medicines",
+      "Navigation equipment and charts"
+    ],
+    "contact_info": {
+      "department": "West Bengal Fisheries Department",
+      "helpline": "1800-345-1313",
+      "website": "https://fisheries.wb.gov.in",
+      "email": "fisheries@wb.gov.in",
+      "address": "Department of Fisheries, Kolkata - 700001"
+    },
+    "permitted_areas": [
+      "Beyond 5 nautical miles for mechanized fishing",
+      "Traditional fishing zones in rivers",
+      "Licensed fishing areas in Bay of Bengal"
+    ],
+    "prohibited_areas": [
+      "Sundarbans mangrove areas",
+      "Hilsa sanctuary zones",
+      "Marine protected areas"
+    ]
+  },
+  "Odisha": {
+    "seasonal_ban": {
+      "period": "April 15 - June 14",
+      "reason": "Fish breeding and spawning season",
+      "penalty": "₹5,000 - ₹25,000 fine and boat confiscation",
+      "current_status": "active"
+    },
+    "restricted_fishing": [
+      {
+        "method": "Trawling",
+        "distance": "Within 3 nautical miles from shore",
+        "reason": "Protect traditional fishing areas",
+        "penalty": "₹10,000 fine and license suspension"
+      },
+      {
+        "method": "Bottom trawling",
+        "area": "Turtle congregation areas",
+        "reason": "Protect endangered sea turtles",
+        "penalty": "₹25,000 fine and equipment confiscation"
+      }
+    ],
+    "licensing": {
+      "motorized_boats": "Registration with Odisha Fisheries Department",
+      "fishing_license": "Required for mechanized fishing",
+      "validity": "Annual renewal",
+      "fee": "₹2,000 - ₹10,000 based on vessel category",
+      "documents": [
+        "Boat registration certificate",
+        "Engine certificate",
+        "Safety equipment certificate",
+        "Crew certification"
+      ]
+    },
+    "safety_requirements": [
+      "Life jackets (ISI marked) for all crew",
+      "VHF radio equipment",
+      "First aid box with medicines",
+      "Emergency flares and signals",
+      "Navigation lights"
+    ],
+    "contact_info": {
+      "department": "Odisha Fisheries Department",
+      "helpline": "1800-345-6770",
+      "website": "https://fisheries.odisha.gov.in",
+      "email": "fisheries@odisha.gov.in",
+      "address": "Department of Fisheries, Bhubaneswar - 751001"
+    },
+    "permitted_areas": [
+      "Beyond 3 nautical miles for trawling",
+      "Traditional fishing zones",
+      "Licensed fishing areas"
+    ],
+    "prohibited_areas": [
+      "Olive ridley turtle nesting beaches",
+      "Marine sanctuaries",
+      "Coral reef areas"
+    ]
+  },
+  "Gujarat": {
+    "seasonal_ban": {
+      "period": "June 1 - July 31 (Monsoon ban)",
+      "reason": "Monsoon season safety and fish breeding",
+      "penalty": "₹10,000 - ₹50,000 fine and license cancellation",
+      "current_status": "seasonal"
+    },
+    "restricted_fishing": [
+      {
+        "method": "Trawling",
+        "distance": "Within 5 nautical miles from shore",
+        "reason": "Protect coastal fishing zones",
+        "penalty": "₹15,000 fine and equipment seizure"
+      },
+      {
+        "method": "Pair trawling",
+        "distance": "Within 10 nautical miles from shore",
+        "reason": "Prevent ecosystem damage",
+        "penalty": "₹20,000 fine and license suspension"
+      }
+    ],
+    "licensing": {
+      "motorized_boats": "Registration with Gujarat Fisheries Department",
+      "fishing_license": "Mandatory for all fishing vessels",
+      "validity": "5 years",
+      "fee": "₹5,000 - ₹30,000 based on vessel size",
+      "documents": [
+        "Boat registration certificate",
+        "Engine certificate",
+        "Insurance certificate",
+        "Safety equipment certificate",
+        "Crew certification"
+      ]
+    },
+    "safety_requirements": [
+      "Life jackets for all crew members",
+      "Marine radio communication equipment",
+      "Emergency beacon (EPIRB)",
+      "First aid kit with medications",
+      "Fire safety equipment",
+      "Navigation lights and signals"
+    ],
+    "contact_info": {
+      "department": "Gujarat Fisheries Department",
+      "helpline": "1800-233-4321",
+      "website": "https://fisheries.gujarat.gov.in",
+      "email": "fisheries@gujarat.gov.in",
+      "address": "Department of Fisheries, Gandhinagar - 382001"
+    },
+    "permitted_areas": [
+      "Beyond 5 nautical miles for mechanized fishing",
+      "Traditional fishing zones",
+      "Licensed deep-sea fishing areas"
+    ],
+    "prohibited_areas": [
+      "Marine national parks",
+      "Coral reef conservation areas",
+      "Mangrove sanctuaries"
+    ]
+  },
+  "Maharashtra": {
+    "seasonal_ban": {
+      "period": "June 1 - July 31",
+      "reason": "Monsoon season fishing ban",
+      "penalty": "₹7,500 - ₹30,000 fine and boat seizure",
+      "current_status": "seasonal"
+    },
+    "restricted_fishing": [
+      {
+        "method": "Purse seine",
+        "distance": "Within 5 nautical miles from shore",
+        "reason": "Protect traditional fishing rights",
+        "penalty": "₹12,000 fine and equipment confiscation"
+      },
+      {
+        "method": "Trawling",
+        "time": "Between 6 PM - 6 AM near shore",
+        "reason": "Prevent conflicts with traditional fishers",
+        "penalty": "₹10,000 fine and license suspension"
+      }
+    ],
+    "licensing": {
+      "motorized_boats": "Registration with Maharashtra Fisheries Department",
+      "fishing_license": "Required for commercial fishing",
+      "validity": "3 years",
+      "fee": "₹3,000 - ₹18,000 based on vessel type",
+      "documents": [
+        "Boat registration certificate",
+        "Engine certificate",
+        "Crew certification",
+        "Safety equipment certificate"
+      ]
+    },
+    "safety_requirements": [
+      "Life jackets (approved standard) for all crew",
+      "VHF radio with emergency channels",
+      "First aid supplies and medicines",
+      "Emergency flares and signals",
+      "Navigation equipment"
+    ],
+    "contact_info": {
+      "department": "Maharashtra Fisheries Department",
+      "helpline": "1800-220-2435",
+      "website": "https://fisheries.maharashtra.gov.in",
+      "email": "fisheries@maharashtra.gov.in",
+      "address": "Department of Fisheries, Mumbai - 400001"
+    },
+    "permitted_areas": [
+      "Beyond 5 nautical miles for mechanized fishing",
+      "Traditional fishing zones",
+      "Licensed fishing areas"
+    ],
+    "prohibited_areas": [
+      "Marine protected areas",
+      "Coral reef zones",
+      "Mangrove conservation areas"
+    ]
+  },
+  "Goa": {
+    "seasonal_ban": {
+      "period": "June 1 - July 31",
+      "reason": "Monsoon season ban",
+      "penalty": "₹10,000 - ₹25,000 fine and boat confiscation",
+      "current_status": "seasonal"
+    },
+    "restricted_fishing": [
+      {
+        "method": "Trawling",
+        "distance": "Within 5 nautical miles from shore",
+        "reason": "Protect artisanal fishing zones",
+        "penalty": "₹15,000 fine and equipment seizure"
+      },
+      {
+        "method": "Rampon fishing",
+        "area": "Estuarine areas",
+        "reason": "Protect breeding grounds",
+        "penalty": "₹8,000 fine and net confiscation"
+      }
+    ],
+    "licensing": {
+      "motorized_boats": "Registration with Goa Fisheries Department",
+      "fishing_license": "Required for all fishing activities",
+      "validity": "Annual renewal",
+      "fee": "₹2,000 - ₹12,000 based on boat size",
+      "documents": [
+        "Boat registration certificate",
+        "Engine certificate",
+        "Safety equipment certificate",
+        "Crew list and certification"
+      ]
+    },
+    "safety_requirements": [
+      "Life jackets for all crew members",
+      "Marine radio communication",
+      "First aid kit with medicines",
+      "Emergency beacon and flares",
+      "Navigation equipment"
+    ],
+    "contact_info": {
+      "department": "Goa Fisheries Department",
+      "helpline": "1800-233-0018",
+      "website": "https://fisheries.goa.gov.in",
+      "email": "fisheries@goa.gov.in",
+      "address": "Department of Fisheries, Panaji - 403001"
+    },
+    "permitted_areas": [
+      "Beyond 5 nautical miles for trawling",
+      "Traditional fishing zones",
+      "Licensed fishing areas"
+    ],
+    "prohibited_areas": [
+      "Marine sanctuary areas",
+      "Turtle nesting beaches",
+      "Mangrove conservation zones"
+    ]
+  },
+  "general": {
+    "national_emergency_contacts": {
+      "coast_guard": "1554",
+      "emergency_services": "112",
+      "marine_police": "100"
+    },
+    "common_safety_guidelines": [
+      "Always wear life jackets while at sea",
+      "Check weather conditions before departure",
+      "Maintain regular communication with shore",
+      "Carry emergency supplies and first aid kit",
+      "Follow all local fishing regulations",
+      "Respect marine protected areas"
+    ],
+    "fishing_best_practices": [
+      "Use sustainable fishing methods",
+      "Respect minimum fish size limits",
+      "Avoid fishing during breeding seasons",
+      "Properly dispose of fishing waste",
+      "Report marine pollution incidents",
+      "Cooperate with fisheries enforcement"
+    ]
+  }
+}
