@@ -1,217 +1,131 @@
-import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import { ThemeProvider } from 'styled-components';
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import 'leaflet/dist/leaflet.css';
-
-// Components
+import React, { useEffect, useState } from 'react';
+import { Analytics } from '@vercel/analytics/react';
+import { trackFishingEvent, trackPageView, trackError } from './utils/analytics';
+import ErrorBoundary from './components/ErrorBoundary';
+import FishingDashboard from './components/FishingDashboard';
 import Header from './components/Header';
 import Sidebar from './components/Sidebar';
 import LoadingSpinner from './components/LoadingSpinner';
-import ErrorBoundary from './components/ErrorBoundary';
-
-// Pages
-import Dashboard from './pages/Dashboard';
-import Chat from './pages/Chat';
-import Weather from './pages/Weather';
-import Legal from './pages/Legal';
-import Safety from './pages/Safety';
-import Emergency from './pages/Emergency';
-import Settings from './pages/Settings';
-
-// Services
-import { initializeI18n } from './services/i18nService';
-import { detectUserLocation } from './services/locationService';
-import { getDeviceInfo } from './services/deviceService';
-
-// Styles
-import GlobalStyles from './styles/GlobalStyles';
-import { lightTheme, darkTheme } from './styles/theme';
-import { AppContainer, MainContent, ContentArea } from './styles/AppStyles';
-
-// Utils
-import { SUPPORTED_LANGUAGES } from './utils/constants';
+import './styles/index.css';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
-  const [currentLanguage, setCurrentLanguage] = useState('en');
-  const [theme, setTheme] = useState('light');
-  const [sidebarOpen, setSidebarOpen] = useState(false);
-  const [userLocation, setUserLocation] = useState(null);
-  const [deviceInfo, setDeviceInfo] = useState(null);
-  const [connectionStatus, setConnectionStatus] = useState('online');
+  const [currentPage, setCurrentPage] = useState('dashboard');
+  const [sessionStartTime] = useState(Date.now());
 
   useEffect(() => {
-    initializeApp();
-  }, []);
+    // Initialize the application
+    const initializeApp = async () => {
+      try {
+        // Track session start
+        trackFishingEvent.sessionStart('fisherman');
+        trackPageView('app_launch', { timestamp: new Date().toISOString() });
 
-  const initializeApp = async () => {
-    try {
-      setIsLoading(true);
-
-      // Initialize i18n
-      await initializeI18n();
-
-      // Get user location
-      const location = await detectUserLocation();
-      setUserLocation(location);
-
-      // Get device info
-      const device = getDeviceInfo();
-      setDeviceInfo(device);
-
-      // Load user preferences
-      loadUserPreferences();
-
-      // Setup connection monitoring
-      setupConnectionMonitoring();
-
-      setIsLoading(false);
-    } catch (error) {
-      console.error('App initialization error:', error);
-      setIsLoading(false);
-    }
-  };
-
-  const loadUserPreferences = () => {
-    try {
-      const savedLanguage = localStorage.getItem('fishermate_language') || 'en';
-      const savedTheme = localStorage.getItem('fishermate_theme') || 'light';
-      
-      if (SUPPORTED_LANGUAGES.includes(savedLanguage)) {
-        setCurrentLanguage(savedLanguage);
+        // Simulate initial loading
+        await new Promise(resolve => setTimeout(resolve, 1000));
+        
+        setIsLoading(false);
+      } catch (error) {
+        trackError('app_initialization', error.message, 'App');
+        console.error('Failed to initialize app:', error);
+        setIsLoading(false);
       }
-      
-      setTheme(savedTheme);
-    } catch (error) {
-      console.error('Error loading preferences:', error);
-    }
-  };
-
-  const setupConnectionMonitoring = () => {
-    const updateConnectionStatus = () => {
-      setConnectionStatus(navigator.onLine ? 'online' : 'offline');
     };
 
-    window.addEventListener('online', updateConnectionStatus);
-    window.addEventListener('offline', updateConnectionStatus);
+    initializeApp();
+
+    // Track session end on page unload
+    const handleBeforeUnload = () => {
+      const sessionDuration = Math.floor((Date.now() - sessionStartTime) / 1000);
+      trackFishingEvent.sessionEnd(sessionDuration);
+    };
+
+    window.addEventListener('beforeunload', handleBeforeUnload);
 
     return () => {
-      window.removeEventListener('online', updateConnectionStatus);
-      window.removeEventListener('offline', updateConnectionStatus);
+      window.removeEventListener('beforeunload', handleBeforeUnload);
     };
-  };
+  }, [sessionStartTime]);
 
-  const handleLanguageChange = (language) => {
-    setCurrentLanguage(language);
-    localStorage.setItem('fishermate_language', language);
-  };
-
-  const handleThemeChange = (newTheme) => {
-    setTheme(newTheme);
-    localStorage.setItem('fishermate_theme', newTheme);
-  };
-
-  const toggleSidebar = () => {
-    setSidebarOpen(!sidebarOpen);
+  const handlePageChange = (page) => {
+    setCurrentPage(page);
+    trackPageView(page, { previous_page: currentPage });
+    trackFishingEvent.featureUsed(`page_${page}`);
   };
 
   if (isLoading) {
-    return <LoadingSpinner />;
+    return (
+      <div className="app-loading">
+        <LoadingSpinner message="Initializing FisherMate.AI..." />
+        <Analytics />
+      </div>
+    );
   }
-
-  const currentTheme = theme === 'light' ? lightTheme : darkTheme;
 
   return (
     <ErrorBoundary>
-      <ThemeProvider theme={currentTheme}>
-        <GlobalStyles />
-        <Router>
-          <AppContainer>
-            <Header 
-              onMenuClick={toggleSidebar}
-              currentLanguage={currentLanguage}
-              onLanguageChange={handleLanguageChange}
-              theme={theme}
-              onThemeChange={handleThemeChange}
-              connectionStatus={connectionStatus}
-            />
-            
-            <MainContent>
-              <Sidebar 
-                isOpen={sidebarOpen}
-                onClose={() => setSidebarOpen(false)}
-                currentLanguage={currentLanguage}
-              />
-              
-              <ContentArea sidebarOpen={sidebarOpen}>
-                <Routes>
-                  <Route path="/" element={<Navigate to="/dashboard" replace />} />
-                  <Route path="/dashboard" element={
-                    <Dashboard 
-                      userLocation={userLocation}
-                      deviceInfo={deviceInfo}
-                      currentLanguage={currentLanguage}
-                    />
-                  } />
-                  <Route path="/chat" element={
-                    <Chat 
-                      userLocation={userLocation}
-                      currentLanguage={currentLanguage}
-                      connectionStatus={connectionStatus}
-                    />
-                  } />
-                  <Route path="/weather" element={
-                    <Weather 
-                      userLocation={userLocation}
-                      currentLanguage={currentLanguage}
-                    />
-                  } />
-                  <Route path="/legal" element={
-                    <Legal 
-                      userLocation={userLocation}
-                      currentLanguage={currentLanguage}
-                    />
-                  } />
-                  <Route path="/safety" element={
-                    <Safety 
-                      currentLanguage={currentLanguage}
-                    />
-                  } />
-                  <Route path="/emergency" element={
-                    <Emergency 
-                      userLocation={userLocation}
-                      currentLanguage={currentLanguage}
-                    />
-                  } />
-                  <Route path="/settings" element={
-                    <Settings 
-                      currentLanguage={currentLanguage}
-                      onLanguageChange={handleLanguageChange}
-                      theme={theme}
-                      onThemeChange={handleThemeChange}
-                    />
-                  } />
-                </Routes>
-              </ContentArea>
-            </MainContent>
-          </AppContainer>
-        </Router>
+      <div className="App">
+        <Header onPageChange={handlePageChange} currentPage={currentPage} />
         
-        <ToastContainer
-          position="top-right"
-          autoClose={5000}
-          hideProgressBar={false}
-          newestOnTop={false}
-          closeOnClick
-          rtl={false}
-          pauseOnFocusLoss
-          draggable
-          pauseOnHover
-          theme={theme}
-        />
-      </ThemeProvider>
+        <main className="app-main">
+          <Sidebar />
+          
+          <div className="app-content">
+            {currentPage === 'dashboard' && <FishingDashboard />}
+            {currentPage === 'borders' && (
+              <div className="borders-page">
+                <h2>🗺️ Fishing Borders & Compliance</h2>
+                <p>Real-time monitoring of fishing zones and regulatory compliance</p>
+                <FishingDashboard showMap={true} />
+              </div>
+            )}
+            {currentPage === 'weather' && (
+              <div className="weather-page">
+                <h2>🌊 Weather & Marine Conditions</h2>
+                <p>Real-time weather updates and marine forecasts</p>
+              </div>
+            )}
+            {currentPage === 'prices' && (
+              <div className="prices-page">
+                <h2>💰 Market Prices</h2>
+                <p>Live fish market prices and trends</p>
+              </div>
+            )}
+            {currentPage === 'news' && (
+              <div className="news-page">
+                <h2>📰 Fisheries News</h2>
+                <p>Latest news and updates from the fishing industry</p>
+              </div>
+            )}
+            {currentPage === 'info' && (
+              <div className="info-page">
+                <h2>🐟 Fish Information</h2>
+                <p>Comprehensive fish species database and information</p>
+              </div>
+            )}
+          </div>
+        </main>
+
+        {/* Vercel Analytics Integration */}
+        <Analytics />
+        
+        {/* Development analytics indicator */}
+        {process.env.NODE_ENV === 'development' && (
+          <div style={{
+            position: 'fixed',
+            bottom: '10px',
+            right: '10px',
+            background: '#000',
+            color: '#fff',
+            padding: '5px 10px',
+            borderRadius: '5px',
+            fontSize: '12px',
+            zIndex: 9999
+          }}>
+            📊 Analytics Active
+          </div>
+        )}
+      </div>
     </ErrorBoundary>
   );
 }

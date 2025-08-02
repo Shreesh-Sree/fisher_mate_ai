@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FisherMate.AI - Advanced Fisheries Dashboard</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐟</text></svg>">
+    <!-- Animate.css for animations -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <!-- Google Maps API -->
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=geometry"></script>
+    <!-- Vercel Analytics -->
+    <script>
+        window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+    </script>
+    <script defer src="https://va.vercel-scripts.com/v1/script.js"></script>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar glass-effect">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <div class="brand-logo">
+                    <i class="fas fa-fish"></i>
+                </div>
+                <div class="brand-text">
+                    <div class="brand-name">FisherMate.AI</div>
+                    <div class="brand-subtitle">Smart Fisheries Dashboard</div>
+                </div>
+            </div>
+            <div class="nav-menu">
+                <a href="#dashboard" class="nav-item active">
+                    <i class="fas fa-home"></i>
+                    Dashboard
+                </a>
+                <a href="#borders" class="nav-item">
+                    <i class="fas fa-map-marked-alt"></i>
+                    Fishing Borders
+                </a>
+                <a href="#prices" class="nav-item">
+                    <i class="fas fa-chart-line"></i>
+                    Market Prices
+                </a>
+                <a href="#weather" class="nav-item">
+                    <i class="fas fa-cloud-sun"></i>
+                    Weather
+                </a>
+                <a href="#news" class="nav-item">
+                    <i class="fas fa-newspaper"></i>
+                    News
+                </a>
+                <a href="#info" class="nav-item">
+                    <i class="fas fa-info-circle"></i>
+                    Fish Info
+                </a>
+            </div>
+            <div class="nav-actions">
+                <button class="nav-action-btn">
+                    <i class="fas fa-bell"></i>
+                    <span class="notification-badge pulse">3</span>
+                </button>
+                <button class="nav-action-btn">
+                    <i class="fas fa-cog"></i>
+                </button>
+                <div class="user-profile">
+                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=40&h=40&fit=crop&crop=face&auto=format" alt="User">
+                    <div class="user-status online"></div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="main-container">
+        <!-- Page Content Container -->
+        <div id="page-content">
+            <!-- Dashboard Section -->
+            <section id="dashboard" class="page-section active">
+                <!-- Hero Section -->
+                <div class="hero-section">
+                    <div class="hero-content">
+                        <h1 class="hero-title">
+                            Welcome to <span class="gradient-text">FisherMate.AI</span>
+                        </h1>
+                        <p class="hero-subtitle">
+                            Your intelligent companion for fishing operations, market insights, weather updates, and legal compliance. Get real-time data to make informed decisions.
+                        </p>
+                        <div class="hero-stats">
+                            <div class="stat-item">
+                                <span class="stat-number">156</span>
+                                <span class="stat-label">Active Boats</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">25+</span>
+                                <span class="stat-label">Languages</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">24/7</span>
+                                <span class="stat-label">Support</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hero-visual">
+                        <div class="floating-cards">
+                            <div class="floating-card card-1">
+                                <i class="fas fa-fish"></i>
+                                <h4>Fish Prices</h4>
+                                <p>Real-time market data</p>
+                            </div>
+                            <div class="floating-card card-2">
+                                <i class="fas fa-cloud-rain"></i>
+                                <h4>Weather Alerts</h4>
+                                <p>Stay safe at sea</p>
+                            </div>
+                            <div class="floating-card card-3">
+                                <i class="fas fa-balance-scale"></i>
+                                <h4>Legal Info</h4>
+                                <p>Know your rights</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dashboard Grid -->
+                <div class="dashboard-grid">
+                    <!-- Left Sidebar -->
+                    <aside class="sidebar glass-effect">
+                        <!-- Quick Actions -->
+                        <div class="sidebar-section">
+                            <h3 class="section-title">
+                                <i class="fas fa-bolt"></i>
+                                Quick Actions
+                            </h3>
+                            <div class="quick-actions">
+                                <button class="quick-action-btn primary">
+                                    <i class="fas fa-plus"></i>
+                                    Report Catch
+                                </button>
+                                <button class="quick-action-btn secondary">
+                                    <i class="fas fa-chart-line"></i>
+                                    Check Prices
+                                </button>
+                                <button class="quick-action-btn tertiary">
+                                    <i class="fas fa-exclamation-triangle"></i>
+                                    Emergency SOS
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Weather Widget -->
+                        <div class="sidebar-section">
+                            <h3 class="section-title">
+                                <i class="fas fa-cloud-sun"></i>
+                                Weather Now
+                            </h3>
+                            <div class="weather-widget modern-card">
+                                <div class="weather-header">
+                                    <div class="weather-location">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        <span>Kochi, Kerala</span>
+                                    </div>
+                                    <div class="weather-time">12:30 PM</div>
+                                </div>
+                                <div class="weather-main">
+                                    <div class="weather-temp">28°C</div>
+                                    <div class="weather-icon">
+                                        <i class="fas fa-sun"></i>
+                                    </div>
+                                </div>
+                                <div class="weather-desc">Sunny with light breeze</div>
+                                <div class="weather-details">
+                                    <div class="weather-item">
+                                        <i class="fas fa-wind"></i>
+                                        <span>15 km/h</span>
+                                    </div>
+                                    <div class="weather-item">
+                                        <i class="fas fa-water"></i>
+                                        <span>65%</span>
+                                    </div>
+                                    <div class="weather-item">
+                                        <i class="fas fa-waves"></i>
+                                        <span>2m</span>
+                                    </div>
+                                    <div class="weather-item">
+                                        <i class="fas fa-eye"></i>
+                                        <span>10 km</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Fish Prices -->
+                        <div class="sidebar-section">
+                            <h3 class="section-title">
+                                <i class="fas fa-rupee-sign"></i>
+                                Market Prices
+                            </h3>
+                            <div class="price-widget">
+                                <div class="price-item">
+                                    <div class="fish-info">
+                                        <div class="fish-icon">🐟</div>
+                                        <div class="fish-details">
+                                            <div class="fish-name">Pomfret</div>
+                                            <div class="fish-category">Premium</div>
+                                        </div>
+                                    </div>
+                                    <div class="price-info">
+                                        <div class="fish-price">₹450/kg</div>
+                                        <div class="price-change positive">
+                                            <i class="fas fa-arrow-up"></i>
+                                            8%
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="price-item">
+                                    <div class="fish-info">
+                                        <div class="fish-icon">🐠</div>
+                                        <div class="fish-details">
+                                            <div class="fish-name">Tuna</div>
+                                            <div class="fish-category">Export</div>
+                                        </div>
+                                    </div>
+                                    <div class="price-info">
+                                        <div class="fish-price">₹320/kg</div>
+                                        <div class="price-change negative">
+                                            <i class="fas fa-arrow-down"></i>
+                                            3%
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="price-item">
+                                    <div class="fish-info">
+                                        <div class="fish-icon">🐡</div>
+                                        <div class="fish-details">
+                                            <div class="fish-name">Mackerel</div>
+                                            <div class="fish-category">Local</div>
+                                        </div>
+                                    </div>
+                                    <div class="price-info">
+                                        <div class="fish-price">₹180/kg</div>
+                                        <div class="price-change positive">
+                                            <i class="fas fa-arrow-up"></i>
+                                            12%
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </aside>
+
+                    <!-- Main Content -->
+                    <main class="main-content glass-effect">
+                        <!-- Chat Section -->
+                        <div class="chat-section">
+                            <div class="chat-header">
+                                <div class="chat-title">
+                                    <div class="ai-avatar">
+                                        <i class="fas fa-robot"></i>
+                                        <div class="ai-status online"></div>
+                                    </div>
+                                    <div class="ai-info">
+                                        <h3>FisherMate AI Assistant</h3>
+                                        <p>Ask me anything about fishing, markets, or weather!</p>
+                                    </div>
+                                </div>
+                                <div class="chat-actions">
+                                    <button class="chat-action-btn" title="Clear Chat">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                    <button class="chat-action-btn" title="Export Chat">
+                                        <i class="fas fa-download"></i>
+                                    </button>
+                                    <button class="chat-action-btn" title="Settings">
+                                        <i class="fas fa-cog"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <div class="chat-container" id="chat-messages">
+                                <div class="welcome-message">
+                                    <div class="welcome-icon">
+                                        <i class="fas fa-comments"></i>
+                                    </div>
+                                    <h4>Welcome to FisherMate AI!</h4>
+                                    <p>I'm here to help you with fishing information, market prices, weather updates, and legal guidance. Try asking me something!</p>
+                                    <div class="suggested-questions">
+                                        <button class="suggestion-btn">
+                                            <i class="fas fa-cloud-rain"></i>
+                                            What's the weather forecast for fishing?
+                                        </button>
+                                        <button class="suggestion-btn">
+                                            <i class="fas fa-chart-line"></i>
+                                            Show me today's fish prices
+                                        </button>
+                                        <button class="suggestion-btn">
+                                            <i class="fas fa-balance-scale"></i>
+                                            What are the fishing regulations?
+                                        </button>
+                                        <button class="suggestion-btn">
+                                            <i class="fas fa-life-ring"></i>
+                                            Safety tips for deep-sea fishing
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="typing-indicator" id="typing-indicator">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span style="margin-left: 8px;">AI is typing...</span>
+                            </div>
+                            
+                            <div class="chat-input-area">
+                                <div class="input-wrapper">
+                                    <input type="text" id="user-input" placeholder="Ask me anything about fishing, markets, or weather..." autocomplete="off">
+                                    <button id="voice-btn" class="nav-action-btn" title="Voice Input">
+                                        <i class="fas fa-microphone"></i>
+                                    </button>
+                                    <button id="send-btn" class="send-btn" title="Send Message">
+                                        <i class="fas fa-paper-plane"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </main>
+
+                    <!-- Right Panel -->
+                    <aside class="right-panel glass-effect">
+                        <!-- Performance Metrics -->
+                        <div class="panel-section">
+                            <h3 class="section-title">
+                                <i class="fas fa-chart-pie"></i>
+                                Today's Metrics
+                            </h3>
+                            <div class="metrics-grid">
+                                <div class="metric-card">
+                                    <div class="metric-icon">
+                                        <i class="fas fa-ship"></i>
+                                    </div>
+                                    <div class="metric-value">156</div>
+                                    <div class="metric-label">Active Boats</div>
+                                    <div class="metric-trend positive">+12%</div>
+                                </div>
+                                <div class="metric-card">
+                                    <div class="metric-icon">
+                                        <i class="fas fa-fish"></i>
+                                    </div>
+                                    <div class="metric-value">2.4T</div>
+                                    <div class="metric-label">Total Catch</div>
+                                    <div class="metric-trend positive">+8%</div>
+                                </div>
+                                <div class="metric-card">
+                                    <div class="metric-icon">
+                                        <i class="fas fa-rupee-sign"></i>
+                                    </div>
+                                    <div class="metric-value">₹2,450</div>
+                                    <div class="metric-label">Avg. Price</div>
+                                    <div class="metric-trend negative">-5%</div>
+                                </div>
+                                <div class="metric-card">
+                                    <div class="metric-icon">
+                                        <i class="fas fa-users"></i>
+                                    </div>
+                                    <div class="metric-value">1,234</div>
+                                    <div class="metric-label">Fishermen</div>
+                                    <div class="metric-trend positive">+3%</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Recent News -->
+                        <div class="panel-section">
+                            <h3 class="section-title">
+                                <i class="fas fa-newspaper"></i>
+                                Latest News
+                            </h3>
+                            <div class="news-widget">
+                                <div class="news-item">
+                                    <div class="news-badge breaking">Breaking</div>
+                                    <div class="news-title">New Fishing Subsidy Announced</div>
+                                    <div class="news-summary">Government announces ₹50,000 subsidy for modernizing fishing boats across coastal states.</div>
+                                    <div class="news-meta">
+                                        <div class="news-time">2 hours ago</div>
+                                        <a href="#" class="news-link">Read More</a>
+                                    </div>
+                                </div>
+                                <div class="news-item">
+                                    <div class="news-badge update">Update</div>
+                                    <div class="news-title">Weather Alert: Cyclone Warning</div>
+                                    <div class="news-summary">Meteorological department issues cyclone warning for eastern coast. Fishing suspended.</div>
+                                    <div class="news-meta">
+                                        <div class="news-time">5 hours ago</div>
+                                        <a href="#" class="news-link">Read More</a>
+                                    </div>
+                                </div>
+                                <div class="news-item">
+                                    <div class="news-badge update">Update</div>
+                                    <div class="news-title">Export Market Opens</div>
+                                    <div class="news-summary">New export opportunities to Southeast Asian markets approved by trade ministry.</div>
+                                    <div class="news-meta">
+                                        <div class="news-time">1 day ago</div>
+                                        <a href="#" class="news-link">Read More</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Recent Alerts -->
+                        <div class="panel-section">
+                            <h3 class="section-title">
+                                <i class="fas fa-exclamation-triangle"></i>
+                                Recent Alerts
+                            </h3>
+                            <div class="alerts-container">
+                                <div class="alert-item warning">
+                                    <div class="alert-icon">
+                                        <i class="fas fa-exclamation-triangle"></i>
+                                    </div>
+                                    <div class="alert-content">
+                                        <div class="alert-title">Weather Warning</div>
+                                        <div class="alert-message">High winds expected in coastal areas. Exercise caution.</div>
+                                        <div class="alert-time">30 minutes ago</div>
+                                    </div>
+                                </div>
+                                <div class="alert-item info">
+                                    <div class="alert-icon">
+                                        <i class="fas fa-info-circle"></i>
+                                    </div>
+                                    <div class="alert-content">
+                                        <div class="alert-title">Price Update</div>
+                                        <div class="alert-message">Pomfret prices increased by 8% in major markets.</div>
+                                        <div class="alert-time">2 hours ago</div>
+                                    </div>
+                                </div>
+                                <div class="alert-item success">
+                                    <div class="alert-icon">
+                                        <i class="fas fa-check-circle"></i>
+                                    </div>
+                                    <div class="alert-content">
+                                        <div class="alert-title">System Update</div>
+                                        <div class="alert-message">All systems are operational and functioning normally.</div>
+                                        <div class="alert-time">1 day ago</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </aside>
+                </div>
+            </section>
+
+            <!-- Fishing Borders Section -->
+            <section id="borders" class="page-section">
+                <div class="section-header">
+                    <h2>🗺️ Fishing Borders & Compliance</h2>
+                    <p>Real-time monitoring of fishing zones and regulatory compliance</p>
+                </div>
+                <div id="fishing-dashboard-container" class="fishing-borders-container">
+                    <!-- Fishing Dashboard will be loaded here -->
+                </div>
+            </section>
+
+            <!-- Other sections can be added here -->
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+    <script>
+        // Initialize page navigation
+        document.addEventListener('DOMContentLoaded', function() {
+            const navItems = document.querySelectorAll('.nav-item');
+            const sections = document.querySelectorAll('.page-section');
+
+            navItems.forEach(item => {
+                item.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Remove active class from all nav items and sections
+                    navItems.forEach(nav => nav.classList.remove('active'));
+                    sections.forEach(section => section.classList.remove('active'));
+                    
+                    // Add active class to clicked nav item
+                    this.classList.add('active');
+                    
+                    // Show corresponding section
+                    const targetId = this.getAttribute('href').substring(1);
+                    const targetSection = document.getElementById(targetId);
+                    if (targetSection) {
+                        targetSection.classList.add('active');
+                        
+                        // Special handling for borders section
+                        if (targetId === 'borders' && typeof loadFishingDashboard === 'function') {
+                            loadFishingDashboard();
+                        }
+                    }
+                });
+            });
+        });
+
+        // Load fishing dashboard when borders section is accessed
+        function loadFishingDashboard() {
+            const container = document.getElementById('fishing-dashboard-container');
+            if (container && !container.hasChildNodes()) {
+                // Create map container
+                const mapDiv = document.createElement('div');
+                mapDiv.style.width = '100%';
+                mapDiv.style.height = '600px';
+                mapDiv.style.borderRadius = '16px';
+                mapDiv.style.overflow = 'hidden';
+                mapDiv.style.boxShadow = '0 8px 32px rgba(0,0,0,0.1)';
+                
+                container.appendChild(mapDiv);
+                
+                // Initialize Google Map
+                if (window.google && window.google.maps) {
+                    const map = new google.maps.Map(mapDiv, {
+                        zoom: 8,
+                        center: { lat: 10.8505, lng: 76.2711 },
+                        mapTypeId: 'hybrid',
+                        styles: [
+                            {
+                                featureType: 'water',
+                                elementType: 'geometry',
+                                stylers: [{ color: '#193a5a' }]
+                            }
+                        ]
+                    });
+                    
+                    // Load fishing zones
+                    loadFishingZones(map);
+                } else {
+                    container.innerHTML = '<p style="text-align: center; padding: 50px;">Google Maps API not loaded. Please add your API key.</p>';
+                }
+            }
+        }
+
+        // Load and display fishing zones on map
+        async function loadFishingZones(map) {
+            try {
+                const response = await fetch('/borders/fishing_zones.geojson');
+                const data = await response.json();
+                
+                // Track border map loading
+                if (window.va) {
+                    window.va('track', 'border_map_loaded', {
+                        zones_count: data.features.length,
+                        timestamp: new Date().toISOString()
+                    });
+                }
+                
+                // Load GeoJSON data
+                map.data.addGeoJson(data);
+                
+                // Style the borders
+                map.data.setStyle((feature) => {
+                    const restrictionLevel = feature.getProperty('restriction_level');
+                    const allowedFishing = feature.getProperty('allowed_fishing');
+                    
+                    let fillColor, strokeColor;
+                    
+                    if (!allowedFishing) {
+                        fillColor = 'rgba(220, 53, 69, 0.3)';
+                        strokeColor = '#DC3545';
+                    } else if (restrictionLevel === 'high') {
+                        fillColor = 'rgba(255, 193, 7, 0.3)';
+                        strokeColor = '#FFC107';
+                    } else if (restrictionLevel === 'medium') {
+                        fillColor = 'rgba(255, 152, 0, 0.2)';
+                        strokeColor = '#FF9800';
+                    } else {
+                        fillColor = 'rgba(76, 175, 80, 0.2)';
+                        strokeColor = '#4CAF50';
+                    }
+
+                    return {
+                        fillColor,
+                        strokeColor,
+                        strokeWeight: 2,
+                        fillOpacity: 0.3,
+                        strokeOpacity: 0.8,
+                    };
+                });
+                
+                // Add click listeners
+                map.data.addListener('click', (event) => {
+                    const properties = {};
+                    event.feature.forEachProperty((value, key) => {
+                        properties[key] = value;
+                    });
+                    
+                    // Track zone interaction
+                    if (window.va) {
+                        window.va('track', 'fishing_zone_clicked', {
+                            zone_name: properties.name,
+                            zone_type: properties.zone_type,
+                            allowed_fishing: properties.allowed_fishing,
+                            restriction_level: properties.restriction_level,
+                            timestamp: new Date().toISOString()
+                        });
+                    }
+                    
+                    showZoneInfo(map, properties, event.latLng);
+                });
+                
+            } catch (error) {
+                console.error('Error loading fishing zones:', error);
+                
+                // Track error
+                if (window.va) {
+                    window.va('track', 'border_loading_error', {
+                        error_message: error.message,
+                        timestamp: new Date().toISOString()
+                    });
+                }
+            }
+        }
+
+        // Show zone information popup
+        function showZoneInfo(map, properties, latLng) {
+            const infoWindow = new google.maps.InfoWindow({
+                content: `
+                    <div style="max-width: 300px; font-family: Arial, sans-serif;">
+                        <h3 style="color: #1976d2; margin-bottom: 10px;">${properties.name}</h3>
+                        <div style="margin-bottom: 8px;">
+                            <strong>Zone Type:</strong> ${properties.zone_type.replace('_', ' ').toUpperCase()}
+                        </div>
+                        <div style="margin-bottom: 8px;">
+                            <strong>Fishing Allowed:</strong> 
+                            <span style="color: ${properties.allowed_fishing ? '#4CAF50' : '#F44336'};">
+                                ${properties.allowed_fishing ? 'Yes' : 'No'}
+                            </span>
+                        </div>
+                        <div style="margin-bottom: 8px;">
+                            <strong>Depth Range:</strong> ${properties.depth_range}
+                        </div>
+                        <div style="margin-bottom: 8px;">
+                            <strong>Max Boat Size:</strong> ${properties.max_boat_size}
+                        </div>
+                        <div style="margin-bottom: 8px;">
+                            <strong>Restrictions:</strong> ${properties.seasonal_restrictions}
+                        </div>
+                        <div style="margin-bottom: 8px;">
+                            <strong>Authority:</strong> ${properties.contact_authority}
+                        </div>
+                        ${properties.penalty ? `
+                            <div style="margin-top: 10px; padding: 8px; background: #ffebee; border-left: 4px solid #f44336; font-size: 12px;">
+                                <strong>Penalty:</strong> ${properties.penalty}
+                            </div>
+                        ` : ''}
+                    </div>
+                `,
+                position: latLng
+            });
+
+            infoWindow.open(map);
+        }
+    </script>
+</body>
+</html>
